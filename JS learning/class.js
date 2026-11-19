@@ -102,7 +102,7 @@ class Employee extends Human {
     console.log(`${this.name} ${this.lastName} is going to ${company} office`);
   }
 
-  //overriding parent class functions
+  //overriding parent class functions *** we call this polymorphism
   eat() {
     return "eating company food";
   }
@@ -132,3 +132,28 @@ class Pet extends Animal {
 
 const cat = new Pet("cat", "meow");
 const dog = new Pet("dog", "woof");
+
+//------------------- static method: call class functions without make a new reference
+class School {
+  static #students = [];
+
+  constructor() {
+    School.init();
+  }
+
+  static init() {
+    this.#students.push(
+      { id: 1, name: "ali" },
+      { id: 2, name: "ali2" },
+      { id: 3, name: "ali3" },
+      { id: 4, name: "ali4" },
+    );
+  }
+
+  static search(id) {
+    return School.#students.find((student) => student.id === id);
+  }
+}
+
+new School();
+console.log("🚀 ~ School.search(1):", School.search(1));
