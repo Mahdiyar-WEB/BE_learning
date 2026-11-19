@@ -23,7 +23,7 @@ const security = {
   password: "********",
 };
 
-Object.assign(user, address, security);
+Object.assign(user, { province: address }, security);
 console.log("🚀 ~ user:", user);
 
 //create array of keys from object
@@ -39,4 +39,3 @@ delete user.id;
 Object.freeze(user);
 user.role = "admin";
 console.log("🚀 ~ user:", user);
-
