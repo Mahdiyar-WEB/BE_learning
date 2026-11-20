@@ -1,5 +1,6 @@
 const http = require("http");
 const products = require("./data/products");
+const { getProducts } = require("./controllers/product.controllers");
 
 const PORT = 3000;
 
@@ -7,9 +8,7 @@ const server = http
   .createServer((req, res) => {
     console.log(req.url);
     if (req.url === "/api/products") {
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.write(JSON.stringify(products));
-      res.end();
+      getProducts(req, res);
     } else {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.write(
