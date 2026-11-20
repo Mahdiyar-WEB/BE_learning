@@ -5,4 +5,4 @@ http, util, fs, url, querystring, stream, zlib
 commonjs, es module or ES6
 
 3.third parties modules
-npm
+npm and installed packages
