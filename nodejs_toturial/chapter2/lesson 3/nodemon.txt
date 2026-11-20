@@ -1,6 +1,0 @@
-nodemon is a utility package for http server which can reset our http server and apply new changes
-
-install: npm i -D nodemon
-
-package.json script command:
-"dev": "nodemon index.js"
