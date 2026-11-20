@@ -1,0 +1,5 @@
+MVC or Model View Controller
+
+Controller => receive request from client and check validity of req and connect to model to fetch data or apply changes on DB data
+Model => connect to DB and receive request from Controller and process the request and send response to Controller
+View => after request process on Controller and Model the result must be send to client by RestfulAPI or SOAP or ....
