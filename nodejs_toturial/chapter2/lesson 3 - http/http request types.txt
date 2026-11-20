@@ -1,0 +1,6 @@
+1.Restful API  => JSON,XML,others
+2.SOAP => XML
+3.JSON-RPC => JSON
+4.GraphQL => JSON
+5.Thrift => JSON or binary
+6.gRPC => JSON or others 

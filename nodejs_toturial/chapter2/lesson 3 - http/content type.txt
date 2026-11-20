@@ -1,0 +1,5 @@
+inside http methods we can define response content type with below types:
+text => text/plain => "text sample"
+html => text/html sample: "<h1>html sample</h1"
+xml => text/xml sample: "<XML><MESSAGE>xml sample</MESSAGE></XML"
+json => application/json sample: JSON.stringify({name: "nodejs"})
