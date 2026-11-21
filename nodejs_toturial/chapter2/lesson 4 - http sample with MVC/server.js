@@ -1,6 +1,9 @@
 const http = require("http");
 const products = require("./data/products");
-const { getProducts } = require("./controllers/product.controllers");
+const {
+  getProducts,
+  getProductByTitle,
+} = require("./controllers/product.controllers");
 
 const PORT = 3000;
 
@@ -9,6 +12,8 @@ const server = http
     console.log(req.url);
     if (req.url === "/api/products") {
       getProducts(req, res);
+    } else if (req.url.match(/\/api\/products\/[a-zA-Z]{1,10}/)) {
+      getProductByTitle(req, res);
     } else {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.write(
@@ -19,6 +24,6 @@ const server = http
   })
   .listen(PORT, () =>
     console.log(
-      `products http server lunched on port ${PORT}, http:localhost:${PORT}`,
+      `products http server lunched on port ${PORT}, http://localhost:${PORT}`,
     ),
   );
