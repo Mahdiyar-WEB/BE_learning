@@ -20,9 +20,18 @@ const findByTitle = async (title) => {
   }
 };
 
+const addProduct = async (product) => {
+  try {
+    await products.push(product);
+  } catch (error) {
+    console.log("🚀 ~ addProduct ~ error:", error);
+  }
+};
+
 const ProductModel = {
   getAllProduct,
   findByTitle,
+  addProduct
 };
 
 module.exports = ProductModel;
