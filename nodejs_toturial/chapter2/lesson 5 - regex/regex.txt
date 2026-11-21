@@ -1,0 +1,56 @@
+regex (regular expression) learning:
+a.our condition must be declare between two slash (/condition/)
+
+b.after last flag we can define flags (/condition/g)
+ *.g flag: means global, it will return all matched sentences which pass the condition
+ *.m flag: multi line, it will check all the lines not the first one
+ *.i flag: insensitive flag,it will check the condition without checking uppercase or lowercase letters
+ **.we can combine them: /condition/gmi
+
+c.bracket []: /[a-z]/gm => find all letters which have lowercase letters
+ *./[A-Z]/gm => find all letters which have uppercase letters
+ *./[0-9]/gm => find all numbers
+ *./[0-9]+/gm =>  at least find one numbers
+ *./[0-9]*/gm =>  select from 0 to all numbers
+ *./[a-z0-9]+/gm => select all lowercase letters and numbers
+ *./[a-z0-9]+/gmi => select all letters and numbers
+
+d.for characters like + - we should use back slash before them
+ *./[\+-_]/gm
+
+e.^ to find the letters or numbers which don't follow the condition
+ *./[^0-9]/gm 
+ *./[^a-z]/gm 
+f.if we put ^ before [] means the sentences must be started with this condition
+ *./^[a-zA-Z]/gm => the sentences must be started with letters not numbers
+
+g.group selection with ()
+ *. /(\+98)/gm
+ *. /(0915)/gm
+ **.we can user | for or condition
+ *. /(0915|\+98)/gm
+
+h.to set limit for count of letters or numbers for condition we can use {minimum,maximum}
+ *. /^[a-zA-Z]{10,20}/gm => sentence should be start with letters and should between 10 to 20 letters
+ *. /^[a-z]{1,1}[a-zA-Z0-9/_/./]{5,20}/gm => should start with 1 lowercase letter and should contain 5 or 20 letters or numbers or _ or .
+
+i.we can set ? to say if it wasn't in the sentence go ahead
+
+other samples:
+/\d/gm find all numbers
+/\d{4,5}/g sentence should have 4 or 5 numbers
+/\D/gm find just letters not numbers its like /[^0-9]/gm
+/\s/gm find all spaces between sentences
+/\bmahdiyar\b/gm find mahdiyar in sentences its like /(mahdiyar)/gm
+
+
+email sample:
+/(^[a-z]{1,1}[a-z0-9]{3,20})\@([a-z]{1,10})\.([a-z]{2,10})/gi
+
+/(\+98|98)?(\-?)(09\d{2}|9\d{2})(\-?)(\d{3})(\-?)(\d{4})/gm:
+09152506383
++989152506383
++9809152506383
++98-9152506383
++98-0915-250-6383
+989152506383
