@@ -2,6 +2,8 @@ const {
   getAllProduct,
   findByTitle,
   addProduct,
+  updateProductById,
+  deleteProductById,
 } = require("../model/product.model");
 
 const getProducts = async (req, res) => {
@@ -49,10 +51,40 @@ const createProduct = async (req, res) => {
   }
 };
 
+const updateProduct = async (req, res) => {
+  try {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+    req.on("end", async () => {
+      const { id, ...productData } = JSON.parse(body);
+      const result = await updateProductById(id, productData);
+      res.writeHead(201, { "Content-Type": "application/json" });
+      res.write(JSON.stringify(result));
+      res.end();
+    });
+  } catch (error) {}
+};
+
+const deleteProduct = async (req, res) => {
+  try {
+    const id = req.url.split('/').reverse()[0];
+    const result = await deleteProductById(id);
+    res.writeHead(201, { "Content-Type": "application/json" });
+    res.write(JSON.stringify(result));
+    res.end();
+  } catch (error) {
+    console.log("🚀 ~ deleteProduct ~ error:", error);
+  }
+};
+
 const ProductControllers = {
   getProducts,
   getProductByTitle,
   createProduct,
+  updateProduct,
+  deleteProduct,
 };
 
 module.exports = ProductControllers;
