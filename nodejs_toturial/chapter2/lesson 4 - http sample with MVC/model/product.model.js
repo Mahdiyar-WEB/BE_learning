@@ -1,4 +1,5 @@
 const products = require("../data/products");
+const fs = require("fs");
 
 const getAllProduct = async () => {
   try {
@@ -22,7 +23,20 @@ const findByTitle = async (title) => {
 
 const addProduct = async (product) => {
   try {
-    await products.push(product);
+    products.push(product);
+    fs.writeFile(
+      `${process.cwd()}/data/products.json`,
+      JSON.stringify(products),
+      (err) => {
+        if (err) {
+          console.log(err);
+        }
+      },
+    );
+    return {
+      message: "product created successfully",
+      product: product,
+    };
   } catch (error) {
     console.log("🚀 ~ addProduct ~ error:", error);
   }
@@ -31,7 +45,7 @@ const addProduct = async (product) => {
 const ProductModel = {
   getAllProduct,
   findByTitle,
-  addProduct
+  addProduct,
 };
 
 module.exports = ProductModel;

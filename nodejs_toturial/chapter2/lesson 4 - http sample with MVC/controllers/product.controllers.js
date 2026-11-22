@@ -34,20 +34,16 @@ const getProductByTitle = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const product = {
-      title: "new Product",
-      type: "new type",
-      description: "description",
-      filename: "0.jpg",
-      height: 600,
-      width: 400,
-      price: 28.1,
-      rating: 4,
-    };
-    await addProduct(product);
-    res.writeHead(201, { "Content-Type": "application/json" });
-    res.write(JSON.stringify(product));
-    res.end();
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+    req.on("end", async () => {
+      const result = await addProduct({ id: Date.now(), ...JSON.parse(body) });
+      res.writeHead(201, { "Content-Type": "application/json" });
+      res.write(JSON.stringify(result));
+      res.end();
+    });
   } catch (error) {
     console.log("🚀 ~ createProduct ~ error:", error);
   }
