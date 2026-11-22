@@ -25,7 +25,7 @@ const addProduct = async (product) => {
   try {
     products.push(product);
     fs.writeFile(
-      `${process.cwd()}/data/products.json`,
+      `${process.cwd()}/data/products.json`, //process.cwd() will refer to executed server.js address
       JSON.stringify(products),
       (err) => {
         if (err) {
