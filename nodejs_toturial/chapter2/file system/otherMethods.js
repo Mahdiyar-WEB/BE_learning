@@ -9,7 +9,7 @@ const fs = require("fs");
 //   err && console.log(err);
 // });
 
-//***for delete file we can use fs.unlink or fs.unlinkSync
+//***for delete file we can use fs.unlink or fs.unlinkSync or fs.rm or fs.rmSync
 
 //check existing file
 const existFile = fs.existsSync("test.txt");
