@@ -1,5 +1,6 @@
+
 const http = require("http");
-const products = require("./data/products");
+
 const {
   getProducts,
   getProductByTitle,
@@ -12,33 +13,41 @@ const PORT = 3000;
 
 const server = http
   .createServer((req, res) => {
-    console.log(req.url);
-    if (req.url === "/api/products" && req.method === "GET") {
-      getProducts(req, res);
-    } else if (
-      req.url.match(/\/api\/products\/[a-zA-Z]{1,10}/) &&
-      req.method === "GET"
-    ) {
-      getProductByTitle(req, res);
-    } else if (
-      req.url.match(/\/api\/products\/[0-9]{1,20}/) &&
-      req.method === "DELETE"
-    ) {
-      deleteProduct(req, res);
-    } else if (req.url === "/api/products" && req.method === "POST") {
-      createProduct(req, res);
-    } else if (req.url === "/api/products" && req.method === "PUT") {
-      updateProduct(req, res);
-    } else {
-      res.writeHead(404, { "Content-Type": "application/json" });
-      res.write(
-        JSON.stringify({ message: "API not found, try /api/products" }),
-      );
-      res.end();
+    const { method, url } = req;
+
+    switch (true) {
+      case url === "/api/products" && method === "GET": {
+        return getProducts(req, res);
+      }
+
+      case /^\/api\/products\/[a-zA-Z]{1,10}$/.test(url) &&
+        method === "GET": {
+        return getProductByTitle(req, res);
+      }
+
+      case /^\/api\/products\/[0-9]{1,20}$/.test(url) &&
+        method === "DELETE": {
+        return deleteProduct(req, res);
+      }
+
+      case url === "/api/products" && method === "POST": {
+        return createProduct(req, res);
+      }
+
+      case url === "/api/products" && method === "PUT": {
+        return updateProduct(req, res);
+      }
+
+      default: {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        return res.end(
+          JSON.stringify({ message: "API not found, try /api/products" }),
+        );
+      }
     }
   })
-  .listen(PORT, () =>
+  .listen(PORT, () => {
     console.log(
-      `products http server lunched on port ${PORT}, http://localhost:${PORT}`,
-    ),
-  );
+      `Products HTTP server launched on port ${PORT}, http://localhost:${PORT}`,
+    );
+  });
