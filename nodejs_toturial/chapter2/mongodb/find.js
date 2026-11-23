@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const DB_URL = "mongodb://localhost:27017";
 const DB_NAME = "mongodb_tutorial";
@@ -17,7 +17,16 @@ const main = async () => {
     // .find({skills:'Node.js'}) // return all users which have Node.js in their skills
     // .find({"address.city":'mashhad '}) // return all users which have Node.js in their skills
     // .find({ birth: { $gte: new Date("01-01-2003") } }) // $gte: great than equal we also can use $gt
-    .find({ birth: { $lte: new Date("01-01-2004") } }) // $lte: less than equal we also can use $lt
+    // .find({ birth: { $lte: new Date("01-01-2004") } }) // $lte: less than equal we also can use $lt
+    // .find({"address.street": { $in: ["qasem-abad", "moalem", "seyyed-razi"] }}) // $in: will find all the values which match with one of from array
+    .find({
+      _id: {
+        $in: [
+          new ObjectId("6b03b185e38fb40c594f56b7"),
+          new ObjectId("6b03b185e38fb40c594f56b8"),
+        ],
+      },
+    }) // $in: will find all the values which match with one of from array
     .toArray()
     .then((res) => console.log(res));
 };
