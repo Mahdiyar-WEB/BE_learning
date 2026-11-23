@@ -14,7 +14,8 @@ const main = async () => {
 
   usersCollection
     // .find({skills:'Node.js'}) // return all users which have Node.js in their skills
-    .find({ birth: { $gte: new Date("01-01-2003") } }) // $gte: great than equal we also can use $gt
+    // .find({ birth: { $gte: new Date("01-01-2003") } }) // $gte: great than equal we also can use $gt
+    .find({ birth: { $lte: new Date("01-01-2004") } }) // $lte: less than equal we also can use $lt
     .toArray()
     .then((res) => console.log(res));
 };
