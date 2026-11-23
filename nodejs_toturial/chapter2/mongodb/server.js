@@ -12,6 +12,19 @@ const main = async () => {
 
   const usersCollection = db.collection("users"); //create or use collection
 
+  // const result = await usersCollection.insertOne({
+  //   name: "mahdiyar",
+  //   lastName: "marvi",
+  //   skills: ["Next.js", "React.js", "Node.js", "typescript"],
+  //   birth: new Date("08-22-2003"),
+  //   address: {
+  //     province: "Khorasan Razavi",
+  //     street: "mashhad",
+  //   },
+  // });
+
+  // console.log("🚀 ~ main ~ result:", result); // it will return mongoDB objectId and acknowledged=true
+
   usersCollection
     .find({})
     .toArray()
