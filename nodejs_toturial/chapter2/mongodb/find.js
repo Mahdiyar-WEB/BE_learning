@@ -12,21 +12,9 @@ const main = async () => {
 
   const usersCollection = db.collection("users"); //create or use collection
 
-  // const result = await usersCollection.insertOne({
-  //   name: "mahdiyar",
-  //   lastName: "marvi",
-  //   skills: ["Next.js", "React.js", "Node.js", "typescript"],
-  //   birth: new Date("08-22-2003"),
-  //   address: {
-  //     province: "Khorasan Razavi",
-  //     street: "mashhad",
-  //   },
-  // });
-
-  // console.log("🚀 ~ main ~ result:", result); // it will return mongoDB objectId and acknowledged=true
-
   usersCollection
-    .find({})
+    // .find({skills:'Node.js'}) // return all users which have Node.js in their skills
+    .find({ birth: { $gte: new Date("01-01-2003") } }) // $gte: great than equal we also can use $gt
     .toArray()
     .then((res) => console.log(res));
 };
