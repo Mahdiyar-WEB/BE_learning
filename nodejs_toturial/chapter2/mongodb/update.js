@@ -12,15 +12,27 @@ const main = async () => {
 
   const usersCollection = db.collection("users"); //create or use collection
 
-  const result = await usersCollection.updateOne(
-    { _id: new ObjectId("6b03b185e38fb40c594f56b7") }, // find the document
-    { $set: { lastName: "marvi nasaj" } }, // update the document with $set
-    // { $unset: { lastName: 1 } }, // remove one property from document
-    // { $push: { skills: "BE" } }, // add item to skills array
-    // { $pull: { skills: "BE" } }, // remove item from skills array
-    // { $inc: { age: 1 } }, // increase item number
-    // { $inc: { age: -1 } }, // decrease item number
-    // { $rename: { age: "userAge" } }, // rename document property name
+  //   const result = await usersCollection.updateOne(
+  // { _id: new ObjectId("6b03b185e38fb40c594f56b7") }, // find the document
+  // { $set: { lastName: "marvi nasaj" } }, // update the document with $set
+  // { $unset: { lastName: 1 } }, // remove one property from document
+  // { $push: { skills: "BE" } }, // add item to skills array
+  // { $pull: { skills: "BE" } }, // remove item from skills array
+  // { $inc: { age: 1 } }, // increase item number
+  // { $inc: { age: -1 } }, // decrease item number
+  // { $rename: { age: "userAge" } }, // rename document property name
+  //   );
+
+  const result = await usersCollection.updateMany(
+    {
+      _id: {
+        $in: [
+          new ObjectId("6b03b185e38fb40c594f56b7"),
+          new ObjectId("6b03b185e38fb40c594f56b8"),
+        ],
+      },
+    }, // find the documents
+    { $set: { roles: "ADMIN" } }, // update the document with $set
   );
 
   console.log("🚀 ~ main ~ result:", result); //  acknowledged: true, modifiedCount: 1, upsertedId: null, upsertedCount: 0, matchedCount: 1
