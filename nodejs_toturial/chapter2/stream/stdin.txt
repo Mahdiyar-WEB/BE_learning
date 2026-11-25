@@ -1,0 +1,2 @@
+hello
+this is a writeStream sample in terminal with process.stdin.pipe(writeStreamFile)
