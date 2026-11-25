@@ -1,15 +1,17 @@
 const fs = require("fs");
-const streamFile = fs.createReadStream("./file.txt");
+const readStreamFile = fs.createReadStream("./read.txt");
+const writeStreamFile = fs.createWriteStream("./write.txt");
 
 let chunkCount = 0;
 
-streamFile.on("ready", () => console.log("data is ready to read"));
+readStreamFile.on("ready", () => console.log("data is ready to read"));
 
-streamFile.on("data", (chunk) => {
+readStreamFile.on("data", (chunk) => {
   chunkCount++;
   console.log(`data chunk ${chunkCount} is received: `, chunk);
+  writeStreamFile.write(chunk);
 });
 
-streamFile.on("error", (err) => console.log(err));
+readStreamFile.on("error", (err) => console.log(err));
 
-streamFile.on("end", (chunk) => console.log("read stream has been ended"));
+readStreamFile.on("end", (chunk) => console.log("read stream has been ended"));
