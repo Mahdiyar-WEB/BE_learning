@@ -18,7 +18,7 @@ http
           return;
         }
 
-        const filename = path.basename(part.filename);
+        const filename = Date.now() + path.extname(part.filename);
         const writeStream = createWriteStream(path.join("./upload", filename));
 
         part.pipe(writeStream);
