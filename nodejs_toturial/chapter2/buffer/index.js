@@ -12,6 +12,12 @@ console.log("N".charCodeAt(0).toString(16)); //4e
 // convert buffer to real value
 console.log(buff.toString()); //NodeJs
 
-const buff2 = Buffer.alloc(256) // create a buffer with 256 byte storage
-buff2.write('Node js')
-console.log("🚀 ~ buff2:", buff2) // <Buffer 4e 6f 64 65 20 6a 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ... 206 more bytes>
+const buff2 = Buffer.alloc(256); // create a buffer with 256 byte storage
+buff2.write("Node js");
+console.log("🚀 ~ buff2:", buff2); // <Buffer 4e 6f 64 65 20 6a 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ... 206 more bytes>
+
+const buff3 = Buffer.from("erfan");
+console.log(buff3.toJSON()); //{ type: 'Buffer', data: [ 101, 114, 102, 97, 110 ] }
+
+const buff4 = Buffer.from([101, 114, 102, 97, 110], "hex");
+console.log("🚀 ~ buff4:", buff4.toString("utf8")); // erfan
