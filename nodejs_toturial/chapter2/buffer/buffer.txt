@@ -1,0 +1,10 @@
+node js runtime can divide the data like movie to many pieces named chunk and store them in 
+buffer storage then it can stream it to client
+
+for example in online video services like youtube for watching a video
+first server will save the video chunks in buffer storage temporary and it will stream
+these chunks to client (browser or app) then video player will join these chunks to start or continue
+video process
+
+it also can use in below TCP operations:
+rabbitMQ, Websocket, kafka, gRPC, FileSystem
