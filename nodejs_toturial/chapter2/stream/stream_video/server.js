@@ -5,8 +5,8 @@ const filePath = "./dance.mp4";
 
 http
   .createServer((req, res) => {
-    const { size } = fs.statSync(filePath);
-    const range = req.headers.range;
+    const { size } = fs.statSync(filePath); // size in bytes
+    const range = req.headers.range; //receive start and end range from header
 
     if (range) {
       let [start, end] = range.replace(/bytes=/, "").split("-");
