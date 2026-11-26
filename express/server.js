@@ -21,4 +21,32 @@ app.get("/products", (req, res) => {
   });
 });
 
+const users = [
+  { id: 1, name: "name 1" },
+  { id: 2, name: "name 2" },
+  { id: 3, name: "name 3" },
+];
+
+app.get("/users/:id", (req, res) => {
+  console.log("route /users/:id");
+  const { id } = req.params;
+
+  const user = users.find((user) => user.id == id);
+
+  if (!user) {
+    res.status(404).json({
+      message: "user not found",
+      statusCode: res.statusCode,
+    });
+  } else {
+    res.status(200).json({
+      message: "user found",
+      data: {
+        user,
+      },
+      statusCode: res.statusCode,
+    });
+  }
+});
+
 app.listen(3000, () => console.log("app lunched on port 3000"));
