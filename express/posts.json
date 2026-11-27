@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to JavaScript",
+    "body": "JavaScript is a versatile programming language used to build interactive websites and web applications.",
+    "likes": 125
+  },
+  {
+    "id": 2,
+    "title": "Understanding React",
+    "body": "React is a JavaScript library for building reusable and component-based user interfaces.",
+    "likes": 89
+  },
+  {
+    "id": 3,
+    "title": "Getting Started with Node.js",
+    "body": "Node.js allows developers to run JavaScript outside the browser and build backend applications.",
+    "likes": 210
+  },
+  {
+    "id": 4,
+    "title": "CSS Flexbox Guide",
+    "body": "Flexbox makes it easier to create responsive layouts and align elements inside containers.",
+    "likes": 67
+  },
+  {
+    "id": 5,
+    "title": "What is Express.js?",
+    "body": "Express.js is a minimal Node.js framework used to build APIs and web servers.",
+    "likes": 156
+  },
+  {
+    "id": 6,
+    "title": "Learning MongoDB",
+    "body": "MongoDB is a NoSQL database that stores data in flexible JSON-like documents.",
+    "likes": 98
+  },
+  {
+    "id": 7,
+    "title": "Async and Await",
+    "body": "Async and await make asynchronous JavaScript code easier to read and maintain.",
+    "likes": 175
+  },
+  {
+    "id": 8,
+    "title": "Understanding REST APIs",
+    "body": "REST APIs allow different applications to communicate through standard HTTP methods.",
+    "likes": 143
+  },
+  {
+    "id": 9,
+    "title": "JavaScript Array Methods",
+    "body": "Methods like map, filter, and reduce help developers manipulate arrays efficiently.",
+    "likes": 76
+  },
+  {
+    "id": 10,
+    "title": "Introduction to TypeScript",
+    "body": "TypeScript adds static typing to JavaScript and helps catch errors during development.",
+    "likes": 230
+  },
+  {
+    "id": 11,
+    "title": "Next.js App Router",
+    "body": "Next.js App Router provides file-based routing and powerful server-side rendering features.",
+    "likes": 188
+  },
+  {
+    "id": 12,
+    "title": "Understanding HTTP Methods",
+    "body": "GET, POST, PUT, PATCH, and DELETE are commonly used HTTP methods for working with resources.",
+    "likes": 112
+  },
+  {
+    "id": 13,
+    "title": "JavaScript Promises",
+    "body": "Promises represent the eventual completion or failure of asynchronous operations.",
+    "likes": 94
+  },
+  {
+    "id": 14,
+    "title": "Introduction to Git",
+    "body": "Git is a version control system that helps developers track changes in their projects.",
+    "likes": 201
+  },
+  {
+    "id": 15,
+    "title": "Responsive Web Design",
+    "body": "Responsive design ensures websites look good across mobile phones, tablets, and desktops.",
+    "likes": 84
+  },
+  {
+    "id": 16,
+    "title": "Understanding Middleware",
+    "body": "Middleware functions can access request and response objects and execute code during the request lifecycle.",
+    "likes": 167
+  },
+  {
+    "id": 17,
+    "title": "Node.js File System",
+    "body": "The fs module provides methods for reading, writing, and managing files in Node.js.",
+    "likes": 119
+  },
+  {
+    "id": 18,
+    "title": "JavaScript Event Loop",
+    "body": "The event loop manages asynchronous callbacks and coordinates the execution of JavaScript code.",
+    "likes": 245
+  },
+  {
+    "id": 19,
+    "title": "Introduction to Docker",
+    "body": "Docker helps developers package applications and their dependencies into portable containers.",
+    "likes": 132
+  },
+  {
+    "id": 20,
+    "title": "CSS Grid Layout",
+    "body": "CSS Grid is a powerful layout system for creating complex two-dimensional web layouts.",
+    "likes": 91
+  },
+  {
+    "id": 21,
+    "title": "Understanding JWT Authentication",
+    "body": "JSON Web Tokens are commonly used to securely transmit authentication information between applications.",
+    "likes": 194
+  },
+  {
+    "id": 22,
+    "title": "JavaScript Destructuring",
+    "body": "Destructuring allows developers to extract values from arrays and objects using concise syntax.",
+    "likes": 73
+  },
+  {
+    "id": 23,
+    "title": "What is MVC Architecture?",
+    "body": "MVC separates an application into Model, View, and Controller components.",
+    "likes": 158
+  },
+  {
+    "id": 24,
+    "title": "Working with Streams in Node.js",
+    "body": "Streams allow Node.js applications to process data piece by piece without loading everything into memory.",
+    "likes": 106
+  },
+  {
+    "id": 25,
+    "title": "Introduction to Tailwind CSS",
+    "body": "Tailwind CSS is a utility-first framework that helps developers build custom user interfaces quickly.",
+    "likes": 218
+  },
+  {
+    "id": 26,
+    "title": "Understanding Regular Expressions",
+    "body": "Regular expressions are patterns used to search, validate, and manipulate strings.",
+    "likes": 65
+  },
+  {
+    "id": 27,
+    "title": "React Hooks Explained",
+    "body": "React Hooks allow functional components to manage state and use lifecycle-related features.",
+    "likes": 183
+  },
+  {
+    "id": 28,
+    "title": "Database Indexing",
+    "body": "Indexes improve database query performance by allowing faster data retrieval.",
+    "likes": 147
+  },
+  {
+    "id": 29,
+    "title": "Understanding Singleton Pattern",
+    "body": "The Singleton pattern ensures that a class has only one instance throughout the application.",
+    "likes": 58
+  },
+  {
+    "id": 30,
+    "title": "Building REST APIs with Express",
+    "body": "Express makes it simple to define routes, handle requests, and build scalable REST APIs.",
+    "likes": 267
+  }
+]
